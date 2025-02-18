@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export default function NavbarEnhance() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand href="#Td">Todo List</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -17,7 +17,7 @@ export default function NavbarEnhance() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#tambahtg">Tambah tugas</Nav.Link>
+            <Nav.Link href="/tambah">Tambah tugas</Nav.Link>
             <Nav.Link href="#lihattg">Lihat Tugas</Nav.Link>
           </Nav>
           <Form className="d-flex">

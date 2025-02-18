@@ -1,10 +1,11 @@
 import NavbarEnhance from "./componens/Navbar";
 
-function NavScrollExample() {
+function App() {
   return (
     <>
-<NavbarEnhance/>
+      <NavbarEnhance />
+
     </>
   );
 }
-export default NavScrollExample;
+export default App;
