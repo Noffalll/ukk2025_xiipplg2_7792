@@ -1,15 +1,17 @@
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
+// import { Button } from 'bootstrap';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router';
 
 
 export default function NavbarEnhance() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand href="#Td">Todo List</Navbar.Brand>
+        <Navbar.Brand href="/home">Todo List</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -27,7 +29,9 @@ export default function NavbarEnhance() {
               className="me-2"
               aria-label="Search"
             />
-            {/* <Button variant="outline-success">Search</Button> */}
+            <Link to='/login'>
+            <Button variant="outline-ligth">Logout</Button>
+            </Link>
           </Form>
         </Navbar.Collapse>
       </Container>

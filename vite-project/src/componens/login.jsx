@@ -35,7 +35,7 @@ function Login() {
             />
             <label htmlFor="floatingPasswordCustom">Password</label>
           </Form.Floating>
-          <Link to={'/'}>
+          <Link to={'/home'}>
           <Button variant="dark" as="input" type="submit" value="Masuk" className="w-100" />
           </Link>
           <Link to={'/register'}>
