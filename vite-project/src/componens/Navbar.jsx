@@ -1,17 +1,18 @@
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 // import { Button } from 'bootstrap';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+// import { Link } from 'react-router';
 
 
 export default function NavbarEnhance() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand href="/home">Todo List</Navbar.Brand>
+        <Navbar.Brand href="/home">📅Todo List</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -20,7 +21,14 @@ export default function NavbarEnhance() {
             navbarScroll
           >
             <Nav.Link href="/tambah">Tambah tugas</Nav.Link>
-            <Nav.Link href="#lihattg">Lihat Tugas</Nav.Link>
+            <Nav.Link href="/lihat">Lihat Tugas</Nav.Link>
+            <NavDropdown title="Setting" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/register">
+                Profil
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+            </NavDropdown>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -29,9 +37,9 @@ export default function NavbarEnhance() {
               className="me-2"
               aria-label="Search"
             />
-            <Link to='/login'>
+            {/* <Link to='/login'>
             <Button variant="outline-ligth">Logout</Button>
-            </Link>
+            </Link> */}
           </Form>
         </Navbar.Collapse>
       </Container>

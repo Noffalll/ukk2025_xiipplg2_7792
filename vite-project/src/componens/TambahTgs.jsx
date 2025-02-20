@@ -1,40 +1,3 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import NavbarEnhance from './Navbar';
-
-function Example() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <>
-    <NavbarEnhance></NavbarEnhance>
-      <Button variant="primary" onClick={handleShow}>
-        I LOVE YOU ❤️❤️
-      </Button>
-
-    <Modal show={show} onHide={handleClose}>
-<Modal.Header closeButton>
-    <Modal.Title>I GK BISA KATA 🤞❤️💕</Modal.Title>
-</Modal.Header>
-    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-     <Modal.Footer>    <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-        <Button variant="primary" onClick={handleClose}>
-           Save Changes
-       </Button>
-    </Modal.Footer>
- </Modal>
- </>
-  );
-}
-
-export default Example;
-
 // import Card from "react-bootstrap/Card";
 // import Button from "react-bootstrap/Button";
 // import Navbar from "./Navbar.jsx";
@@ -54,12 +17,13 @@ export default Example;
 //   return (
 //     <>
 //       <Navbar />
+//       <h4>Tambah Tugas</h4>
 //       <Container>
 //         <Card className="mt-4">
 //           <Card.Body>
 //             {" "}
 //             <Button className="mt-2" variant="primary" onClick={handleShow}>
-//               Tambah💩
+//               Tambah
 //             </Button>
 //             <Modal show={show} onHide={handleClose}>
 //               <Modal.Header closeButton>
@@ -76,8 +40,9 @@ export default Example;
 //                 <FloatingLabel controlId="floatingLabels" label="Label Tugas">
 //                   <Form.Select aria-label="Floating label">
 //                     <option>Pilih Salah Satu</option>
-//                     <option value="1">Sudah Selesai</option>
+//                     <option value="1">dalam pengerjaan</option>
 //                     <option value="2">Belum Selesai</option>
+//                     <option value="2">sudah Selesai</option>
 //                   </Form.Select>
 //                 </FloatingLabel>
 //                 <Form.Group
@@ -121,115 +86,120 @@ export default Example;
 
 
 
-// import { useState } from 'react';
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router';
 // import Button from 'react-bootstrap/Button';
 // import Modal from 'react-bootstrap/Modal';
 // import NavbarEnhance from './Navbar';
 
-// export default function TaskTable() {
-//   const [tasks, setTasks] = useState([]);
-//   const [task, setTask] = useState("");
-//   const [date, setDate] = useState("");
-//   const [editingTask, setEditingTask] = useState(null);
-//   const [editedTask, setEditedTask] = useState("");
-//   const [editedDate, setEditedDate] = useState("");
+export default function TaskTable() {
+  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState("");
+  const [date, setDate] = useState("");
+  const [editingTask, setEditingTask] = useState(null);
+  const [editedTask, setEditedTask] = useState("");
+  const [editedDate, setEditedDate] = useState("");
 
-  // const addTask = (e) => {
-  //   e.preventDefault();
-  //   if (task.trim() && date) {
-  //     setTasks([...tasks, { id: Date.now(), name: task, dueDate: date }]);
-  //     setTask("");
-  //     setDate("");
-  //   }
-  // };
+  const addTask = (e) => {
+    e.preventDefault();
+    if (task.trim() && date) {
+      setTasks([...tasks, { id: Date.now(), name: task, dueDate: date }]);
+      setTask("");
+      setDate("");
+    }
+  };
 
-  // const deleteTask = (id) => {
-  //   setTasks(tasks.filter((t) => t.id !== id));
-  // };
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((t) => t.id !== id));
+  };
 
-  // const editTask = (id) => {
-  //   const taskToEdit = tasks.find((t) => t.id === id);
-  //   setEditingTask(id);
-  //   setEditedTask(taskToEdit.name);
-  //   setEditedDate(taskToEdit.dueDate);
-  // };
+  const editTask = (id) => {
+    const taskToEdit = tasks.find((t) => t.id === id);
+    setEditingTask(id);
+    setEditedTask(taskToEdit.name);
+    setEditedDate(taskToEdit.dueDate);
+  };
 
-  // const saveTask = (id) => {
-  //   setTasks(tasks.map((t) => (t.id === id ? { ...t, name: editedTask, dueDate: editedDate } : t)));
-  //   setEditingTask(null);
-  // };
+  const saveTask = (id) => {
+    setTasks(tasks.map((t) => (t.id === id ? { ...t, name: editedTask, dueDate: editedDate } : t)));
+    setEditingTask(null);
+  };
 
-  // return (
-  //   <NavbarEnhance>
-  //     <>
-  //   <div style={{ textAlign: "center", padding: "20px" }}>
-  //     <h2>Task Manager</h2>
-  //     <form onSubmit={addTask}>
-  //       <input
-  //         value={task}
-  //         onChange={(e) => setTask(e.target.value)}
-  //         placeholder="Tambah Tugas"
-  //         required
-  //       />
-  //       <input
-  //         type="date"
-  //         value={date}
-  //         onChange={(e) => setDate(e.target.value)}
-  //         required
-  //       />
-  //       <button type="submit">Tambah</button>
-  //     </form>
-  //     <table border="1" style={{ marginTop: "10px", width: "100%" }}>
-  //       <thead>
-        //   <tr>
-        //     <th>No</th>
-        //     <th>Tugas</th>
-        //     <th>Due Date</th>
-        //     <th>Actions</th>
-        //   </tr>
-        // </thead>
-        // <tbody>
-        //   {tasks.map((t, index) => (
-        //     <tr key={t.id}>
-        //       <td>{index + 1}</td>
-        //       <td>
-        //         {editingTask === t.id ? (
-        //           <input
-        //             value={editedTask}
-        //             onChange={(e) => setEditedTask(e.target.value)}
-        //           />
-        //         ) : (
-        //           t.name
-        //         )}
-        //       </td>
-        //       <td>
-            //     {editingTask === t.id ? (
-            //       <input
-            //         type="date"
-            //         value={editedDate}
-            //         onChange={(e) => setEditedDate(e.target.value)}
-            //       />
-            //     ) : (
-            //       t.dueDate
-            //     )}
-            //   </td>
-            //   <td>
-            //     {editingTask === t.id ? (
-            //       <button onClick={() => saveTask(t.id)}>Save</button>
-            //     ) : (
-            //       <button onClick={() => editTask(t.id)}>Edit</button>
-            //     )}
-            //     <button onClick={() => deleteTask(t.id)}>Delete</button>
-            //   </td>
-            // </tr>
-    //       ))}
-    //     </tbody>
-    //   </table>
-    // </div>
-    // </>
+  return (
+    // <NavbarEnhance>
+      <>
+         <Link to={'/home'}>
+          <Button variant="dark" as="input" type="submit" value="Kembali" className="w-100" />
+          </Link>
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <h2>Task Manager</h2>
+      <form onSubmit={addTask}>
+        <input
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Tambah Tugas"
+          required
+        />
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
+        <button type="submit">Tambah</button>
+      </form>
+      <table border="1" style={{ marginTop: "10px", width: "100%" }}>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Tugas</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((t, index) => (
+            <tr key={t.id}>
+              <td>{index + 1}</td>
+              <td>
+                {editingTask === t.id ? (
+                  <input
+                    value={editedTask}
+                    onChange={(e) => setEditedTask(e.target.value)}
+                  />
+                ) : (
+                  t.name
+                )}
+              </td>
+              <td>
+                {editingTask === t.id ? (
+                  <input
+                    type="date"
+                    value={editedDate}
+                    onChange={(e) => setEditedDate(e.target.value)}
+                  />
+                ) : (
+                  t.dueDate
+                )}
+              </td>
+              <td>
+                {editingTask === t.id ? (
+                  <button onClick={() => saveTask(t.id)}>Save</button>
+                ) : (
+                  <button onClick={() => editTask(t.id)}>Edit</button>
+                )}
+                <button onClick={() => deleteTask(t.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    </>
     // </NavbarEnhance>
 
-//   );
-// }
+  );
+}
 
 
