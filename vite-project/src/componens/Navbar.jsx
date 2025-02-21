@@ -1,11 +1,8 @@
-// import Button from 'react-bootstrap/Button';
-// import { Button } from 'bootstrap';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// import { Link } from 'react-router';
 
 
 export default function NavbarEnhance() {
@@ -24,7 +21,7 @@ export default function NavbarEnhance() {
             <Nav.Link href="/lihat">Lihat Tugas</Nav.Link>
             <NavDropdown title="Setting" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
-              <NavDropdown.Item href="/register">
+              <NavDropdown.Item href="/profil">
                 Profil
               </NavDropdown.Item>
               <NavDropdown.Divider />

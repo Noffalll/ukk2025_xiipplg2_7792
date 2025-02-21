@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './componens/login.jsx'
 import Register from './componens/register.jsx'
 import Lihat from './componens/lihattgs.jsx'
+import Profil from './componens/profil.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,10 @@ createRoot(document.getElementById('root')).render(
       <Route path="/home" element={<App />} />
       <Route path="/tambah" element={<Tambah />} />
       <Route path="/lihat" element={<Lihat />} />
+
+
+
+      <Route path="/profil" element={<Profil />} />
       
       
     </Routes>
