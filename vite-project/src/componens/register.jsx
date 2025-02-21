@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -94,6 +94,9 @@ function Register() {
                   <div className="d-grid gap-2">
                     <Button type="submit" variant="danger">Daftar</Button>
                   </div>
+                  <Link to={"/login"}>
+                  Kembali, Kalau sudah punya 
+                  </Link>
                 </Form>
               </Card.Body>
             </Card>
