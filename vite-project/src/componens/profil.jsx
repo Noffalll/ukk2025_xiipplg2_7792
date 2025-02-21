@@ -1,7 +1,6 @@
 import { Card, Button, Form, Container } from "react-bootstrap";
 import Navbar from "./Navbar";
 import { useState } from "react";
-import NavbarEnhance from "./Navbar";
 
 const ProfileCard = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -14,7 +13,6 @@ const ProfileCard = () => {
 
   return (
     <>
-    <NavbarEnhance></NavbarEnhance>
       <Navbar />
       <Container className="d-flex justify-content-center align-items-center vh-100">
         <Card className="p-4 shadow-sm" style={{ width: "350px" }}>
@@ -33,7 +31,7 @@ const ProfileCard = () => {
                 <p className="text-muted mb-2">{email}</p>
                 <p className="text-muted mb-2">{phone}</p>
                 <p className="text-muted">{location}</p>
-                <Button variant="primary" className="w-100" onClick={() => setIsEditing(true)}>Edit</Button>
+                <Button variant="dark" className="w-100" onClick={() => setIsEditing(true)}>Ubah Profil</Button>
               </>
             )}
           </Card.Body>
